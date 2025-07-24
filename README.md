@@ -13,6 +13,9 @@ A responsive and dynamic card-based website built using **Node.js**, **Express.j
 - Dynamic interactions powered by JavaScript
 - Express.js backend to serve pages and manage routes
 
+  ### 🔹 Home Page  
+![https://github.com/SaraZ1234/Cards-Website/blob/master/Screenshot%202025-07-23%20201531.png?raw=true](https://github.com/SaraZ1234/Cards-Website/blob/master/Screenshot%202025-07-23%20201531.png?raw=true)
+
 
 
 
