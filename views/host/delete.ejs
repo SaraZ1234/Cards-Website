@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Note Mail Cards</title>
+    <link rel="stylesheet" href="/card.css" />
+  </head>
+
+  <style>
+    .btn {
+      display: inline-block;
+      background-color: #007bff; /* Bright blue */
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+    .center-button {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+  <body>
+    <header>
+      <div class="logo">elevato <span>Notes</span></div>
+      <nav class="navbar">
+        <a href="/host">Add Note</a>
+        <!-- <a href="/addnote.html">Add Notes</a> -->
+        <a href="/host/host-card">All Notes</a>
+        <a href="/host/delete">Delete Notes</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2>Delete Notes Page</h2>
+
+      <% if (deletedNote) { %>
+      <div class="card-grid">
+        <div class="note-card deleted-card">
+          <div class="card-header">Note Deleted</div>
+          <div class="profile-section">
+            <img
+              src="<%= deletedNote.imageurl %>"
+              class="avatar"
+              alt="Deleted Note Image"
+            />
+            <h2><%= deletedNote.Notename %></h2>
+            <p class="subtitle"><%= deletedNote.Details %></p>
+            <p class="deleted-by">
+              Written for: <strong><%= deletedNote.person %></strong>
+            </p>
+            <p class="deleted-by">
+              Deleted on: <strong><%= deletedDate %></strong>
+            </p>
+          </div>
+          <div class="card-footer">
+            Note successfully deleted! &nbsp;|&nbsp;
+            <a href="/host/interface">Back to Notes</a>
+          </div>
+        </div>
+      </div>
+      <% } %> <% if (isEmpty) { %>
+        <div class="no-notes-message">
+          <p>No more notes available to delete.</p>
+          <div class="center-button">
+            <a href="/host/host-card" class="btn">View All Notes</a>
+          </div>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="card-grid">
+        <% registeredHome.forEach(note => { %>
+        <div class="note-card">
+          <div class="card-header"><%= note.Notename %></div>
+          <div class="profile-section">
+            <img src="<%= note.imageurl %>" class="avatar" alt="Note Image" />
+            <p class="subtitle"><%= note.Details %></p>
+            <p class="written-for">
+              Written for: <strong><%= note.person %></strong>
+            </p>
+          </div>
+          <div class="card-footer">
+            <form action="/host/delete/<%= note.id %>" method="POST">
+              <button type="submit" class="btn-delete">Delete</button>
+            </form>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>

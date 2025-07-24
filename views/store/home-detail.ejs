@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Note Mail Cards</title>
+    <link rel="stylesheet" href="/card.css" />
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+        flex-direction: column;
+      }
+      .container h2 {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">elevato <span>Notes</span></div>
+      <nav class="navbar">
+        <a href="/index.html">Home</a>
+        <!-- <a href="/addnote.html">Add Notes</a> -->
+        <a href="/card.html">All Notes</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2>Hi, I am the detail page</h2>
+
+      <div class="note-card">
+        <div class="card-header"><%= home.Notename %></div>
+        <div class="profile-section">
+          <img
+            src="<%= home.imageurl %>"
+            class="avatar"
+            alt="Profile"
+            name="imageurl"
+          />
+          <h2>Hi, <%= home.person %></h2>
+          <p class="subtitle"><%= home.Details %></p>
+        </div>
+        <!-- <a href="/card.html/<%= home.id%>" class="cta-button">Explore Story</a> -->
+        <div class="card-footer">
+          © 2025 elevato Market · <a href="#">Unsubscribe</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
